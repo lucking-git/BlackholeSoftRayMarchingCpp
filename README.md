@@ -1,5 +1,6 @@
 软光线步进算法渲染黑洞
-
+目前的效果
+https://github.com/lucking-git/BlackholeSoftRayMarchingCpp/blob/master/spct20.jpg
 
 
 参考：
