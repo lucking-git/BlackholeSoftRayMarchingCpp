@@ -6,6 +6,7 @@ class sphere:public hittable
 {
 public:
 	sphere() {}
+	sphere(vec3 cen, double r) :center(cen), radius(r) {}
 	sphere(vec3 cen, double r, shared_ptr<material> m) :center(cen), radius(r), mat_ptr(m) {}
 
 
@@ -44,3 +45,4 @@ public:
 	double radius;
 	shared_ptr<material> mat_ptr;
  };
+

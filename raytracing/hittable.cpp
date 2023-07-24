@@ -174,4 +174,26 @@ bool rotate_y::bounding_box(double t0, double t1, aabb& output_box)const
 {
     output_box = bbox;
     return hasbox;
+
+
  }
+
+
+bool circle::hit(const ray& r, double t0, double t1, hit_record& rec) const {
+     auto t = (k - r.origin().z()) / r.direction().z();
+     if (t < t0 || t > t1)
+         return false;
+     auto x = r.origin().x() + t * r.direction().x();
+     auto y = r.origin().y() + t * r.direction().y();
+     if (sqrt((x-center.x())* (x - center.x()) + (y-center.y()) *( y-center.y()))>radius)
+         return false;
+     rec.u = (x - center.x()) / radius;
+     rec.v = (y - center.y()) / radius;
+     rec.t = t;
+     vec3 outward_normal = vec3(0, 0, 1);
+     rec.set_face_normal(r, outward_normal);
+     rec.mat_ptr = mp;
+     rec.p = r.at(t);
+     return true;
+ }
+

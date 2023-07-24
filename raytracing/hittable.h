@@ -137,6 +137,26 @@ public:
 
 
 
+class circle :public hittable
+{
+public:
+	circle() {}
+	circle(vec3 cen, double r,double z, shared_ptr<material> mat) :center(cen), radius(r), mp(mat),k(z) {};
+	virtual bool hit(const ray& r, double t0, double t1, hit_record& rec) const;
+
+	virtual bool bounding_box(double t0, double t1, aabb& output_box) const {
+		output_box = aabb(vec3(center.x()-radius, center.y()-radius, k - 0.0001), vec3(center.x()+radius,center.y()+radius, k + 0.0001));
+		return true;
+	}
+
+public:
+	shared_ptr<material> mp;
+	double radius, k;
+	vec3 center;
+};
+
+
+
 
 
 

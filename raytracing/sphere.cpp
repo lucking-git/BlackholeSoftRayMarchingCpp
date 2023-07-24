@@ -114,5 +114,3 @@ bool moving_sphere::bounding_box(double t0, double t1, aabb& output_box)const
 
 
 
-
-

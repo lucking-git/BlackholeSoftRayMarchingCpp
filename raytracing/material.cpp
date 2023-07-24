@@ -12,7 +12,7 @@ vec3 material::emitted(double u, double v, const vec3& p)const
 {
 	vec3 scatter_direction = rec.normal + random_unit_vector();
 	scattered = ray(rec.p, scatter_direction,r_in.time());
-	attenuation = albedo->value(rec.u, rec.v, rec.p);
+	attenuation = albedo->value(rec.u, rec.v, rec.p);//衰减率和值有关
 	return true;
 }
 

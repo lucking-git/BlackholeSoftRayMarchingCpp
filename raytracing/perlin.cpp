@@ -36,10 +36,10 @@ perlin::perlin()
 	ranvec = new vec3[point_count];
 
 	for (int i = 0; i < point_count; ++i) {
-		ranvec[i] = unit_vector(vec3::random(-1, 1));
+		ranvec[i] = unit_vector(vec3::random(-1, 1));//生成一个随机数一维数组  梯度表
 	}
 
-	perm_x = perlin_generate_perm();
+	perm_x = perlin_generate_perm();//生成三个随机打乱数组  排列表
 	perm_y = perlin_generate_perm();
 	perm_z = perlin_generate_perm();
 
@@ -93,7 +93,7 @@ double perlin::noise(const vec3& p)const
 	return p;
 }
 
- void perlin::permute(int* p, int n)
+ void perlin::permute(int* p, int n)//随机打乱数组
  {
 	 for (int i = n - 1; i > 0; i--)
 	 {
@@ -105,7 +105,7 @@ double perlin::noise(const vec3& p)const
 	 }
  }
 
- double perlin::turb(const vec3& p, int depth = 7) const {
+ double perlin::turb(const vec3& p, int depth = 7) const {//fbm
 	 auto accum = 0.0;
 	 vec3 temp_p = p;
 	 auto weight = 1.0;
