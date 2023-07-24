@@ -1,6 +1,18 @@
 软光线步进算法渲染黑洞
-目前的效果
-https://github.com/lucking-git/BlackholeSoftRayMarchingCpp/blob/master/spct20.jpg
+基于raytracing渲染器
+编译器：VS2022
+语言：C++
+光线步进算法-欧拉法
+物理：黑洞的施瓦西解
+
+目前的效果：
+![image]（https://github.com/lucking-git/BlackholeSoftRayMarchingCpp/blob/master/spct20.jpg）
+
+todo：
+体积云的效果优化
+函数的封装
+写一篇文章
+
 
 
 参考：
